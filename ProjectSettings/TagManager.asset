@@ -11,6 +11,9 @@ TagManager:
   - FireWall
   - P
   - Solid
+  - Knight
+  - Mage
+  - Ranger
   layers:
   - Default
   - TransparentFX
