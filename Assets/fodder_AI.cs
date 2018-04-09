@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class fodder_AI : MonoBehaviour {
+    public bool approachesPlayer;
+    public float approachDistance;
     public LayerMask mask;
     private Animator animator;
     private Rigidbody2D body;
@@ -19,7 +21,11 @@ public class fodder_AI : MonoBehaviour {
 
     public float damageTimer;
     public float wanderTimer;
+    public float wandertimerGoal;
     Vector2 wanderDir;
+
+    public GameObject drop;
+    public int dropRate;
 	// Use this for initialization
 	void Start () {
         animator = gameObject.GetComponent<Animator>();
@@ -29,7 +35,7 @@ public class fodder_AI : MonoBehaviour {
         player = playerList[0];
         damaged = false;
         rightFacing = true;
-        wanderTimer = 2;
+        //wanderTimer = 2;
 	}
 	
 	// Update is called once per frame
@@ -44,7 +50,7 @@ public class fodder_AI : MonoBehaviour {
         {
             Vector2 toPlayer = new Vector2(player.transform.position.x - body.position.x, player.transform.position.y - body.position.y);
             RaycastHit2D hit = Physics2D.Raycast(body.position, toPlayer.normalized, Vector2.Distance(body.position, player.transform.position), mask);
-            if (hit.collider == null && !damaged)
+            if (hit.collider == null && !damaged && approachesPlayer && toPlayer.magnitude < approachDistance)
             {
                 //Debug.DrawLine(body.position, body.position + toPlayer.normalized* Vector2.Distance(body.position, player.transform.position), Color.green, 0f);
                 moveInDirection(toPlayer.normalized);
@@ -52,7 +58,7 @@ public class fodder_AI : MonoBehaviour {
             else if(!damaged)
             {
                 wanderTimer += Time.deltaTime;
-                if (wanderTimer > 2)
+                if (wanderTimer > wandertimerGoal)
                 {
                     wanderTimer = 0;
                     wanderDir = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)).normalized;
@@ -70,6 +76,10 @@ public class fodder_AI : MonoBehaviour {
             if (healthPoints <= 0)
             {
                 Instantiate(explosion, body.position, new Quaternion());
+                if(Random.Range(1,dropRate) == 1)
+                {
+                    Instantiate(drop, body.position, new Quaternion());
+                }
                 Destroy(gameObject);
             }
         }       
@@ -121,7 +131,7 @@ public class fodder_AI : MonoBehaviour {
             coll.enabled = false;
             healthPoints -= 1;
             toCo = -toCo.normalized;
-            body.AddForce(-toCo * 1000);
+            body.AddForce(toCo * 500);
         }
     }
 

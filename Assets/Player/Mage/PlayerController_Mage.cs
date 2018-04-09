@@ -16,6 +16,9 @@ public class PlayerController_Mage : MonoBehaviour {
     private float chargetimer;
     private float chargetimerGoal;
 
+    public AudioClip charge;
+    private AudioSource source;
+
     public GameObject fireball;
     public GameObject chargeFireball;
     public GameObject firewall;
@@ -24,6 +27,7 @@ public class PlayerController_Mage : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        source = this.GetComponent<AudioSource>();
         //assosciate the animator and body wth this object's animation controller, rigidbody, and pcbase
         animator = this.GetComponent<Animator>();
         body = this.GetComponent<Rigidbody2D>();
@@ -74,8 +78,9 @@ public class PlayerController_Mage : MonoBehaviour {
             chargetimer += Time.deltaTime;
         }
 
-        if (chargetimer >= chargetimerGoal)
+        if (chargetimer >= chargetimerGoal && !charged)
         {
+            source.PlayOneShot(charge, 0.2f);
             charged = true;
         }
 
