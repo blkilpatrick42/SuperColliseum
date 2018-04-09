@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 50229925433455192}
   - component: {fileID: 61521523512174064}
   - component: {fileID: 114364324798292208}
+  - component: {fileID: 82155394744009572}
   m_Layer: 2
   m_Name: knight
   m_TagString: P
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1131704782932080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.93, y: -0.81, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,6 +91,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25347427, y: 0.26023132}
   m_EdgeRadius: 0
+--- !u!82 &82155394744009572
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1131704782932080}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b289ff11a1e0c9f44b121c88557ab577, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 0
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95907747097574872
 Animator:
   serializedVersion: 3
@@ -120,9 +201,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingDirection: 1
   still: 1
-  baseSpeed: 2
-  speed: 2
+  baseSpeed: 2.25
+  speed: 2.25
   canMove: 0
+  canOnlyTurn: 0
+  MaxHealthPoints: 4
+  CurrentHealthPoints: 4
+  CurrentArmorPoints: 4
+  hit: {fileID: 8300000, guid: 210535ed19b1af84e831a2842c525aa9, type: 3}
 --- !u!114 &114364324798292208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,6 +224,7 @@ MonoBehaviour:
   swordRight: {fileID: 1495992003965476, guid: e50b69a3d2a152647b99685266c565f5, type: 2}
   swordUp: {fileID: 1171185597115894, guid: 43662142c69f54f4385669e438bf2b22, type: 2}
   swordDown: {fileID: 1376683322185888, guid: cfd03d634532fdb45b35627e74fe451a, type: 2}
+  charge: {fileID: 8300000, guid: 07224ce25d50be849a49de8389bbf99a, type: 3}
   shieldLeft: {fileID: 1670417233860892, guid: c9198e0fa03cf234a83724dffad41858, type: 2}
   shieldRight: {fileID: 1354505232045088, guid: a2f65d0dc0391764babdffea2595538b,
     type: 2}

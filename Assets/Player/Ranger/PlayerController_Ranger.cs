@@ -18,11 +18,15 @@ public class PlayerController_Ranger : MonoBehaviour {
     private float specialtimer;
     private float specialtimerGoal;
 
+    public AudioClip charge;
+    private AudioSource source;
+
     public GameObject arrow;
 
     // Use this for initialization
     void Start()
     {
+        source = this.GetComponent<AudioSource>();
         //assosciate the animator and body wth this object's animation controller, rigidbody, and pcbase
         animator = this.GetComponent<Animator>();
         body = this.GetComponent<Rigidbody2D>();
@@ -71,8 +75,9 @@ public class PlayerController_Ranger : MonoBehaviour {
             chargetimer += Time.deltaTime;
         }
 
-        if (chargetimer >= chargetimerGoal)
+        if (chargetimer >= chargetimerGoal && !charged)
         {
+            source.PlayOneShot(charge, 0.2f);
             charged = true;
         }
 

@@ -11,6 +11,13 @@ TagManager:
   - FireWall
   - P
   - Solid
+  - 1Damage
+  - boxNumber
+  - bombItem
+  - itemManager
+  - 2Damage
+  - 2ArmorDamage
+  - 1ArmorDamage
   layers:
   - Default
   - TransparentFX
@@ -22,10 +29,10 @@ TagManager:
   - 
   - Solids
   - Magic
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Items
+  - Arrow
+  - Big Enemies
   - 
   - 
   - 

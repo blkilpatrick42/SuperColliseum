@@ -22,12 +22,12 @@ public class ArrowController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D co)
     {
-        if (co.gameObject.tag == "Solid")
+        if (co.gameObject.tag == "Solid" || co.gameObject.tag == "2Damage")
         {
             Destroy(gameObject);
         }
         collisions = collisions - 1;
-        if (collisions <= 0)
+        if (collisions <= 0 && co.gameObject.tag != "P")
         {
             Destroy(gameObject);
         }

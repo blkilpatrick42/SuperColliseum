@@ -9,16 +9,31 @@ public class PlayerController_Base : MonoBehaviour {
     public float speed;
     private Animator animator;  //this objects animation controller
     private Rigidbody2D body;   //the rigidBody assosciated with this object
+    private SpriteRenderer myRenderer;   //the spriteRenderer assosciated with this object
     public bool canMove;        //used to determine if the player is in a state where they can move
     public bool canOnlyTurn;
+    public int MaxHealthPoints;
+    public int CurrentHealthPoints;
+    public int CurrentArmorPoints;
+
+    public AudioClip hit;
+    private AudioSource source;
+
+    bool canBeHit;
+    float flashingTimer;
+    float flashingTimerGoal;
 
     // Use this for initialization
     void Start () {
+        source = this.GetComponent<AudioSource>();
         //assosciate the animator and body wth this object's animation controller and rigidbody
         animator = this.GetComponent<Animator>();
         body = this.GetComponent<Rigidbody2D>();
+        myRenderer = this.GetComponent<SpriteRenderer>();
         canMove = true;
+        canBeHit = true;
         speed = baseSpeed;
+        flashingTimerGoal = 1.0f;
     }
 	
 	// Update is called once per frame
@@ -28,6 +43,23 @@ public class PlayerController_Base : MonoBehaviour {
 
     void FixedUpdate()
     {
+        flashingTimer += Time.deltaTime;
+        if(flashingTimer >= flashingTimerGoal && !canBeHit)
+        {
+            canBeHit = true;
+            myRenderer.enabled = true;
+        }
+        else if(!canBeHit)
+        {
+            if (myRenderer.enabled == true)
+            {
+                myRenderer.enabled = false;
+            }
+            else
+            {
+                myRenderer.enabled = true;
+            }
+        }
         UpdateMovement();
         UpdateAnimator();
     }
@@ -110,6 +142,72 @@ public class PlayerController_Base : MonoBehaviour {
         else
         {
             body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
+    public void damage(int dmg, bool armorOnly)
+    {
+        source.PlayOneShot(hit, 0.5f);
+        canBeHit = false;
+        flashingTimer = 0;
+
+        CurrentArmorPoints -= dmg;
+        if(CurrentArmorPoints < 0)
+        {
+            if (!armorOnly)
+            {
+                CurrentHealthPoints += CurrentArmorPoints;
+            }
+            CurrentArmorPoints = 0;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D co)
+    {
+        if (co.gameObject.tag == "1Damage")
+        {
+            if (canBeHit)
+            {
+                damage(1,false);
+            }
+        }
+        if (co.gameObject.tag == "2Damage")
+        {
+            if (canBeHit)
+            {
+                damage(2,false);
+            }
+        }
+        if (co.gameObject.tag == "1ArmorDamage")
+        {
+            if (canBeHit)
+            {
+                damage(1, true);
+            }
+        }
+    }
+    void OnTriggerEnter2D(Collider2D co)
+    {
+        if (co.gameObject.tag == "1Damage")
+        {
+            if (canBeHit)
+            {
+                damage(1,false);
+            }
+        }
+        if (co.gameObject.tag == "2Damage")
+        {
+            if (canBeHit)
+            {
+                damage(2,false);
+            }
+        }
+        if (co.gameObject.tag == "1ArmorDamage")
+        {
+            if (canBeHit)
+            {
+                damage(1, true);
+            }
         }
     }
 
