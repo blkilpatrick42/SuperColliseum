@@ -113,6 +113,113 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &20886015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 20886017}
+  - component: {fileID: 20886016}
+  - component: {fileID: 20886018}
+  m_Layer: 0
+  m_Name: Heart2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &20886016
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20886015}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 3ca4dd57d0aee8e4a9e8da0b3540c998, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.64, y: 0.64}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &20886017
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20886015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.71, y: 3.96, z: 0}
+  m_LocalScale: {x: 0.7374408, y: 0.7374415, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &20886018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20886015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd57f51ec617344eaa0eadc68ec99b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeroText: {fileID: 301318506}
+  basicText: {fileID: 241016130}
+  Stats: {fileID: 700042723}
+  DoubleCheck: {fileID: 1928291660}
+  buttonA: {fileID: 1033007317}
+  buttonB: {fileID: 733629698}
+  knight: {fileID: 2076203482}
+  archer: {fileID: 1542286931}
+  mage: {fileID: 1968356402}
+  textbox: {fileID: 1130628394}
+  baseKnight: {fileID: 1099746891}
+  baseRanger: {fileID: 958932309}
+  baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
+  selected: 0
+  flag: 0
+  flag2: 0
+  kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!1 &241016128
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -210,14 +317,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!95 &241016133
 Animator:
   serializedVersion: 3
@@ -235,6 +346,113 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &243497643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 243497645}
+  - component: {fileID: 243497644}
+  - component: {fileID: 243497646}
+  m_Layer: 0
+  m_Name: Heart3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &243497644
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243497643}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 3ca4dd57d0aee8e4a9e8da0b3540c998, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.64, y: 0.64}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &243497645
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243497643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.27, y: 3.96, z: 0}
+  m_LocalScale: {x: 0.7374408, y: 0.7374415, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &243497646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243497643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd57f51ec617344eaa0eadc68ec99b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeroText: {fileID: 301318506}
+  basicText: {fileID: 241016130}
+  Stats: {fileID: 700042723}
+  DoubleCheck: {fileID: 1928291660}
+  buttonA: {fileID: 1033007317}
+  buttonB: {fileID: 733629698}
+  knight: {fileID: 2076203482}
+  archer: {fileID: 1542286931}
+  mage: {fileID: 1968356402}
+  textbox: {fileID: 1130628394}
+  baseKnight: {fileID: 1099746891}
+  baseRanger: {fileID: 958932309}
+  baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
+  selected: 0
+  flag: 0
+  flag2: 0
+  kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!1 &279428932
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -394,14 +612,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!95 &301318509
 Animator:
   serializedVersion: 3
@@ -468,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -516,14 +738,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!95 &700042726
 Animator:
   serializedVersion: 3
@@ -559,7 +785,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &733629698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9852941, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -589,8 +815,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
 --- !u!95 &733629699
@@ -631,14 +857,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!222 &733629701
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -660,130 +890,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: -25}
+  m_AnchoredPosition: {x: -20, y: 60}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &794603131
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 794603135}
-  - component: {fileID: 794603134}
-  - component: {fileID: 794603133}
-  - component: {fileID: 794603132}
-  m_Layer: 0
-  m_Name: DoubleCheckObj
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!95 &794603132
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 794603131}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &794603133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 794603131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd57f51ec617344eaa0eadc68ec99b3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HeroText: {fileID: 301318506}
-  basicText: {fileID: 241016130}
-  Stats: {fileID: 700042723}
-  DoubleCheck: {fileID: 1928291660}
-  buttonA: {fileID: 1033007317}
-  buttonB: {fileID: 733629698}
-  knight: {fileID: 2076203482}
-  archer: {fileID: 1542286931}
-  mage: {fileID: 1968356402}
-  textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
-  baseKnight: {fileID: 1099746891}
-  baseRanger: {fileID: 958932309}
-  baseMage: {fileID: 1511704082}
-  selected: 0
-  flag: 0
-  flag2: 0
-  kPosition: {x: 0, y: 0}
---- !u!212 &794603134
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 794603131}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: f1fc9bf8506094fca886026907aae2f6, type: 3}
-  m_Color: {r: 0.2794118, g: 0.25064883, b: 0.25064883, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
---- !u!4 &794603135
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 794603131}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09, y: -0.01, z: 0}
-  m_LocalScale: {x: 9.144667, y: 3.0907662, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &958932309
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,14 +932,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!212 &958932311
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1005,7 +1118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1033007313
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1021,7 +1134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: -5}
+  m_AnchoredPosition: {x: 25, y: 90}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033007314
@@ -1045,14 +1158,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1009821042}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!95 &1033007315
 Animator:
   serializedVersion: 3
@@ -1088,7 +1205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.86764705, g: 0.063797586, b: 0.063797586, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1105,8 +1222,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
 --- !u!212 &1033007318
@@ -1192,14 +1309,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!212 &1099746893
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1343,8 +1464,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1130628394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.222, y: 2.36, z: 0}
-  m_LocalScale: {x: 8.24198, y: 3.9380755, z: 1}
+  m_LocalPosition: {x: 0.292, y: 2.36, z: 0}
+  m_LocalScale: {x: 9.374514, y: 3.9380755, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1370,14 +1491,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!95 &1130628398
 Animator:
   serializedVersion: 3
@@ -1434,14 +1559,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!212 &1511704084
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1555,14 +1684,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!95 &1542286933
 Animator:
   serializedVersion: 3
@@ -1668,7 +1801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.88235295, g: 0.071366794, b: 0.071366794, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1710,14 +1843,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!95 &1928291662
 Animator:
   serializedVersion: 3
@@ -1756,7 +1893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: 20}
+  m_AnchoredPosition: {x: -68, y: 120}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1968356402
@@ -1798,14 +1935,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 0
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!95 &1968356404
 Animator:
   serializedVersion: 3
@@ -1979,6 +2120,220 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1998230410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1998230412}
+  - component: {fileID: 1998230411}
+  - component: {fileID: 1998230413}
+  m_Layer: 0
+  m_Name: Heart1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1998230411
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1998230410}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 3ca4dd57d0aee8e4a9e8da0b3540c998, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.64, y: 0.64}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &1998230412
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1998230410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1, y: 3.96, z: 0}
+  m_LocalScale: {x: 0.7374408, y: 0.7374415, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1998230413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1998230410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd57f51ec617344eaa0eadc68ec99b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeroText: {fileID: 301318506}
+  basicText: {fileID: 241016130}
+  Stats: {fileID: 700042723}
+  DoubleCheck: {fileID: 1928291660}
+  buttonA: {fileID: 1033007317}
+  buttonB: {fileID: 733629698}
+  knight: {fileID: 2076203482}
+  archer: {fileID: 1542286931}
+  mage: {fileID: 1968356402}
+  textbox: {fileID: 1130628394}
+  baseKnight: {fileID: 1099746891}
+  baseRanger: {fileID: 958932309}
+  baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
+  selected: 0
+  flag: 0
+  flag2: 0
+  kPosition: {x: 0, y: 0}
+  count: 0
+--- !u!1 &2062903095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2062903097}
+  - component: {fileID: 2062903096}
+  - component: {fileID: 2062903098}
+  m_Layer: 0
+  m_Name: Heart4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &2062903096
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2062903095}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 3ca4dd57d0aee8e4a9e8da0b3540c998, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.64, y: 0.64}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &2062903097
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2062903095}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.88, y: 3.96, z: 0}
+  m_LocalScale: {x: 0.7374408, y: 0.7374415, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2062903098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2062903095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd57f51ec617344eaa0eadc68ec99b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeroText: {fileID: 301318506}
+  basicText: {fileID: 241016130}
+  Stats: {fileID: 700042723}
+  DoubleCheck: {fileID: 1928291660}
+  buttonA: {fileID: 1033007317}
+  buttonB: {fileID: 733629698}
+  knight: {fileID: 2076203482}
+  archer: {fileID: 1542286931}
+  mage: {fileID: 1968356402}
+  textbox: {fileID: 1130628394}
+  baseKnight: {fileID: 1099746891}
+  baseRanger: {fileID: 958932309}
+  baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
+  selected: 0
+  flag: 0
+  flag2: 0
+  kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!1 &2076203482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,14 +2373,18 @@ MonoBehaviour:
   archer: {fileID: 1542286931}
   mage: {fileID: 1968356402}
   textbox: {fileID: 1130628394}
-  DoubleCheckObj: {fileID: 794603131}
   baseKnight: {fileID: 1099746891}
   baseRanger: {fileID: 958932309}
   baseMage: {fileID: 1511704082}
+  heart1: {fileID: 1998230410}
+  heart2: {fileID: 20886015}
+  heart3: {fileID: 243497643}
+  heart4: {fileID: 2062903095}
   selected: 1
   flag: 0
   flag2: 0
   kPosition: {x: 0, y: 0}
+  count: 0
 --- !u!95 &2076203484
 Animator:
   serializedVersion: 3

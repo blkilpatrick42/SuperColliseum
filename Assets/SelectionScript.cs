@@ -19,14 +19,19 @@ public class SelectionScript : MonoBehaviour {
     public GameObject archer;
     public GameObject mage;
     public GameObject textbox;
-    public GameObject DoubleCheckObj;
+    //public GameObject DoubleCheckObj;
     public GameObject baseKnight;
     public GameObject baseRanger;
     public GameObject baseMage;
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
+    public GameObject heart4;
     public bool selected;
     public bool flag;
     public bool flag2;
     public Vector2 kPosition;
+    public int count;
 
     void Start()
     {
@@ -41,9 +46,13 @@ public class SelectionScript : MonoBehaviour {
         flag2 = false;
         baseMage.SetActive(false);
         baseRanger.SetActive(false);
+        heart1.SetActive(false);
+        heart2.SetActive(false);
+        heart3.SetActive(false);
+        heart4.SetActive(false);
         //DoubleCheck.SetActive(false);
         //DoubleCheckObj.SetActive(false);
-
+        count = 0;
     }
     void Update()
     {
@@ -52,11 +61,19 @@ public class SelectionScript : MonoBehaviour {
 
         if (this.gameObject.tag == "Knight" && selected)
         {
-            HeroText.enabled = true;
+            
+            //HeroText.enabled = true;
             textbox.SetActive(true);
             baseKnight.SetActive(true);
             baseMage.SetActive(false);
             baseRanger.SetActive(false);
+            if (count == 0)
+            {
+                heart1.SetActive(true);
+                heart2.SetActive(true);
+                heart3.SetActive(true);
+                heart4.SetActive(true);
+            }
             HeroText.text = "Knight: ";
             basicText.text = "Health: ";
             Stats.text = "Close Range\n Basic Attack: Sweeping Attack\n Charged Attack: Mid Range Wide Attack\n Special: Blocks and Reflects enemies attacks,\n" +
@@ -77,23 +94,58 @@ public class SelectionScript : MonoBehaviour {
                 }
                 else
                 {
-                    DoubleCheckObj.SetActive(true);
-
+                    //DoubleCheckObj.SetActive(true);
+                    /*DoubleCheck.enabled = true;
+                    buttonA.enabled = true;
+                    buttonB.enabled = true;
+                    */
+                    DoubleCheck.enabled = true;
+                    buttonA.enabled = true;
+                    buttonB.enabled = true;
                     DoubleCheck.text = "Are you sure you want to play as the Knight?";
                     buttonA.text = "Press A to continue.";
                     buttonB.text = "Press B to go back to Hero Select.";
+                    textbox.SetActive(false);
+                    HeroText.enabled = false;
+                    basicText.enabled = false;
+                    Stats.enabled = false;
+                    heart1.SetActive(false);
+                    heart2.SetActive(false);
+                    heart3.SetActive(false);
+                    heart4.SetActive(false);
                     flag2 = true;
                 }
+
+                count = 1;
             }
+            else if(Input.GetButtonDown("Cancel"))
+            {
+                DoubleCheck.enabled = false;
+                buttonA.enabled = false;
+                buttonB.enabled = false;
+                HeroText.enabled = true;
+                basicText.enabled = true;
+                Stats.enabled = true;
+                flag2 = false;
+                count = 0;
+            }
+
         }
 
         else if (this.gameObject.tag == "Mage" && selected)
         {
-            HeroText.enabled = true;
+            //HeroText.enabled = true;
             textbox.SetActive(true);
             baseMage.SetActive(true);
             baseKnight.SetActive(false);
             baseRanger.SetActive(false);
+            if (count == 0)
+            {
+                heart1.SetActive(true);
+                heart2.SetActive(true);
+                heart3.SetActive(true);
+                heart4.SetActive(false);
+            }
             HeroText.text = "Mage: ";
             basicText.text = "Health: ";
             Stats.text = "Mid Range\n Basic Attack: Fireball Shot\n Charged Attack: Fireball Shot that explodes \n" +
@@ -124,21 +176,51 @@ public class SelectionScript : MonoBehaviour {
                 }
                 else
                 {
-                    DoubleCheckObj.SetActive(true);
+                    DoubleCheck.enabled = true;
+                    buttonA.enabled = true;
+                    buttonB.enabled = true;
+                    //DoubleCheckObj.SetActive(true);
                     DoubleCheck.text = "Are you sure you want to play as the Mage?";
                     buttonA.text = "Press A to continue.";
                     buttonB.text = "Press B to go back to Hero Select.";
+                    textbox.SetActive(false);
+                    HeroText.enabled = false;
+                    basicText.enabled = false;
+                    Stats.enabled = false;
+                    heart1.SetActive(false);
+                    heart2.SetActive(false);
+                    heart3.SetActive(false);
+                    heart4.SetActive(false);
                     flag2 = true;
                 }
+                count = 1;
+            }
+            else if (Input.GetButtonDown("Cancel"))
+            {
+                DoubleCheck.enabled = false;
+                buttonA.enabled = false;
+                buttonB.enabled = false;
+                HeroText.enabled = true;
+                basicText.enabled = true;
+                Stats.enabled = true;
+                flag2 = false;
+                count = 0;
             }
         }
         else if (this.gameObject.tag == "Ranger" && selected)
         {
-            HeroText.enabled = true;
+            //HeroText.enabled = true;
             textbox.SetActive(true);
             baseRanger.SetActive(true);
             baseMage.SetActive(false);
             baseKnight.SetActive(false);
+            if (count == 0)
+            {
+                heart1.SetActive(true);
+                heart2.SetActive(true);
+                heart3.SetActive(false);
+                heart4.SetActive(false);
+            }
             HeroText.text = "Archer: ";
             basicText.text = "Health: ";
             Stats.text = "Long Range\n Basic Attack: Arrow Shot (arrow will go until\n" +
@@ -159,12 +241,35 @@ public class SelectionScript : MonoBehaviour {
                 }
                 else
                 {
-                    DoubleCheckObj.SetActive(true);
+                    DoubleCheck.enabled = true;
+                    buttonA.enabled = true;
+                    buttonB.enabled = true;
+                    //DoubleCheckObj.SetActive(true);
                     DoubleCheck.text = "Are you sure you want to play as the Ranger?";
                     buttonA.text = "Press A to continue.";
                     buttonB.text = "Press B to go back to Hero Select.";
+                    textbox.SetActive(false);
+                    HeroText.enabled = false;
+                    basicText.enabled = false;
+                    Stats.enabled = false;
+                    heart1.SetActive(false);
+                    heart2.SetActive(false);
+                    heart3.SetActive(false);
+                    heart4.SetActive(false);
                     flag2 = true;
                 }
+                count = 1;
+            }
+            else if (Input.GetButtonDown("Cancel"))
+            {
+                DoubleCheck.enabled = false;
+                buttonA.enabled = false;
+                buttonB.enabled = false;
+                HeroText.enabled = true;
+                basicText.enabled = true;
+                Stats.enabled = true;
+                flag2 = false;
+                count = 0;
             }
         }
         if (Horizontal == 0)
