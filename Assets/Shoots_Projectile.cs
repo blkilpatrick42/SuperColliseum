@@ -15,9 +15,13 @@ public class Shoots_Projectile : MonoBehaviour {
     public float timer;
     public float timerGoal;
 
+    float checkRayCastTimer;
+    float checkRayCastTimerGoal;
+
     public List<GameObject> projectiles;
 	// Use this for initialization
 	void Start () {
+        checkRayCastTimerGoal = 1;
         if (projectile != null)
         {
             projectiles.Add(projectile);
@@ -42,18 +46,22 @@ public class Shoots_Projectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector2 toPlayer = new Vector2(player.transform.position.x - body.position.x, player.transform.position.y - body.position.y);
-        RaycastHit2D hit = Physics2D.Raycast(body.position, toPlayer.normalized, Vector2.Distance(body.position, player.transform.position), myMask);
-        if (hit.collider == null && timer>=timerGoal && toPlayer.magnitude < minDistance)
+        if (toPlayer.magnitude < minDistance && checkRayCastTimer > checkRayCastTimerGoal)
         {
-            for (int i = 0; i < numProjectiles; i++)
+            RaycastHit2D hit = Physics2D.Raycast(body.position, toPlayer.normalized, Vector2.Distance(body.position, player.transform.position), myMask);
+            if (hit.collider == null && timer >= timerGoal)
             {
-                Instantiate(projectiles[i], body.position, new Quaternion());
+                for (int i = 0; i < numProjectiles; i++)
+                {
+                    Instantiate(projectiles[i], body.position, new Quaternion());
+                }
+                timer = 0;
             }
-            timer = 0;
         }
     }
     void FixedUpdate()
     {
+        checkRayCastTimer += Time.deltaTime;
         timer += Time.deltaTime;
     }
 }

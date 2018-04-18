@@ -84,7 +84,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fd39b3a128f967345b39e81389763dad, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7b53a777010f764499c30f20d9eaf6f3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd94f419b2b622f45850ecf91cf15cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordSlash: {fileID: 8300000, guid: fd39b3a128f967345b39e81389763dad, type: 3}
+  swordSlash: {fileID: 8300000, guid: 7b53a777010f764499c30f20d9eaf6f3, type: 3}
 --- !u!212 &212470143378177436
 SpriteRenderer:
   m_ObjectHideFlags: 1

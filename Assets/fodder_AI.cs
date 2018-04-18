@@ -19,10 +19,14 @@ public class fodder_AI : MonoBehaviour {
     public GameObject explosion;
     public GameObject player;
 
-    public float damageTimer;
+    float damageTimer;
+    public float damageTimerGoal;
     public float wanderTimer;
     public float wandertimerGoal;
     Vector2 wanderDir;
+
+    float checkRayCastTimer;
+    float checkRayCastTimerGoal;
 
     public GameObject drop;
     public int dropRate;
@@ -35,6 +39,7 @@ public class fodder_AI : MonoBehaviour {
         player = playerList[0];
         damaged = false;
         rightFacing = true;
+        checkRayCastTimerGoal = 0.1f;
         //wanderTimer = 2;
 	}
 	
@@ -45,17 +50,33 @@ public class fodder_AI : MonoBehaviour {
 
     void FixedUpdate()
     {
-
+        checkRayCastTimer += Time.deltaTime;
         if (player != null)
         {
             Vector2 toPlayer = new Vector2(player.transform.position.x - body.position.x, player.transform.position.y - body.position.y);
-            RaycastHit2D hit = Physics2D.Raycast(body.position, toPlayer.normalized, Vector2.Distance(body.position, player.transform.position), mask);
-            if (hit.collider == null && !damaged && approachesPlayer && toPlayer.magnitude < approachDistance)
+            if (toPlayer.magnitude < approachDistance && checkRayCastTimer > checkRayCastTimerGoal)
             {
-                //Debug.DrawLine(body.position, body.position + toPlayer.normalized* Vector2.Distance(body.position, player.transform.position), Color.green, 0f);
-                moveInDirection(toPlayer.normalized);
+                checkRayCastTimer = 0;
+                RaycastHit2D hit = Physics2D.Raycast(body.position, toPlayer.normalized, Vector2.Distance(body.position, player.transform.position), mask);
+                if (hit.collider == null && !damaged && approachesPlayer)
+                {
+                    //Debug.DrawLine(body.position, body.position + toPlayer.normalized* Vector2.Distance(body.position, player.transform.position), Color.green, 0f);
+                    moveInDirection(toPlayer.normalized);
+                }
+                else if (!damaged)
+                {
+                    wanderTimer += Time.deltaTime;
+                    if (wanderTimer > wandertimerGoal)
+                    {
+                        wanderTimer = 0;
+                        wanderDir = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)).normalized;
+                        //Debug.DrawLine(body.position, body.position + wanderDir, Color.green, 0f);
+                    }
+                    moveInDirection(wanderDir);
+                    //Debug.DrawLine(body.position, body.position + toPlayer.normalized * Vector2.Distance(body.position, player.transform.position), Color.red, 0f);
+                }
             }
-            else if(!damaged)
+            else if (!damaged)
             {
                 wanderTimer += Time.deltaTime;
                 if (wanderTimer > wandertimerGoal)
@@ -69,7 +90,7 @@ public class fodder_AI : MonoBehaviour {
             }
         }
         damageTimer += Time.deltaTime;
-        if(damageTimer > 0.5)
+        if(damageTimer > damageTimerGoal)
         {
             coll.enabled = true;
             damaged = false;
@@ -80,6 +101,7 @@ public class fodder_AI : MonoBehaviour {
                 {
                     Instantiate(drop, body.position, new Quaternion());
                 }
+                player.GetComponent<PlayerController_Base>().score++;
                 Destroy(gameObject);
             }
         }       

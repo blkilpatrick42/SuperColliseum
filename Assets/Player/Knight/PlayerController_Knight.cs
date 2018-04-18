@@ -50,16 +50,16 @@ public class PlayerController_Knight : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Dev"))
+        if (Input.GetButtonDown("Exit"))
         {
-            SceneManager.LoadScene("RangerTest", LoadSceneMode.Single);
+            Application.Quit();
         }
         UpdateAnimator();
-        if (Input.GetButtonDown("Attack") && !attacking && !usingSpecial){
+        if (Input.GetButtonDown("Attack") && !attacking && !usingSpecial && !pcBase.dead){
             attack();
         }
 
-        if (Input.GetButtonDown("Special") && !usingSpecial && !attacking)
+        if (Input.GetButtonDown("Special") && !usingSpecial && !attacking && !pcBase.dead)
         {
             usingSpecial = true;
             pcBase.setCanMove(false);
@@ -104,7 +104,7 @@ public class PlayerController_Knight : MonoBehaviour {
 
         if(chargetimer >= chargetimerGoal && !charged)
         {
-            source.PlayOneShot(charge, 0.2f);
+            source.PlayOneShot(charge, 0.5f);
             charged = true;
         }
 

@@ -144,16 +144,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c954c1fcc1a354796c9f2c46d81a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  approachesPlayer: 1
+  approachesPlayer: 0
   approachDistance: 5
   mask:
     serializedVersion: 2
     m_Bits: 256
   movementSpeed: 0.3
-  healthPoints: 8
-  explosion: {fileID: 1824958296786378, guid: 92c776e2efb81eb4c84c2f58a8f6ac73, type: 2}
+  healthPoints: 15
+  explosion: {fileID: 1654031385134356, guid: 9e9c70701ff538441a6064d16f8080b9, type: 2}
   player: {fileID: 0}
-  damageTimer: 0
+  damageTimerGoal: 0.5
   wanderTimer: 5
   wandertimerGoal: 5
   drop: {fileID: 1749881388030776, guid: 59e67b09bc161d24899336aa741c983a, type: 2}
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8095ca61b7427f947a4b88442c1a972a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

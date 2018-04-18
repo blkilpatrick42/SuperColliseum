@@ -4,26 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Sword
-  - Shield
   - Arrow
-  - Fireball
+  - 2Damage
+  - 1Damage
   - FireWall
   - P
-  - Solid
-<<<<<<< HEAD
-  - 1Damage
-  - boxNumber
-  - bombItem
-  - itemManager
-  - 2Damage
-  - 2ArmorDamage
+  - Sword
   - 1ArmorDamage
-=======
-  - Knight
-  - Mage
-  - Ranger
->>>>>>> origin/master
+  - Fireball
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -33,12 +22,12 @@ TagManager:
   - UI
   - 
   - 
-  - Solids
-  - Magic
-  - Player
-  - Items
-  - Arrow
-  - Big Enemies
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

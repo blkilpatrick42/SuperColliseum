@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/KnightTest.unity
-    guid: ce6878e3a7af17045afcba01abddeb68
-  - enabled: 1
-    path: Assets/MageTest.unity
-    guid: 02a947ec8810ca34187a8870834aaeb4
-  - enabled: 1
-    path: Assets/RangerTest.unity
-    guid: 2c2d170303dff6c45afb950a124f2bf6
-  - enabled: 1
     path: Assets/HeroSelectScreen.unity
     guid: 90d880b0deada41a7a075ec50d22b50e
+  - enabled: 1
+    path: Assets/RangerTest.unity
+    guid: a01e5a9c5e292124a97e7c82055bd55e
+  - enabled: 1
+    path: Assets/MageTest.unity
+    guid: d298904c7e2dfad42946f1316ec5d9ae
+  - enabled: 1
+    path: Assets/KnightTest.unity
+    guid: 598ac752d4b83fd4f80bdfa2e4eb49e0
