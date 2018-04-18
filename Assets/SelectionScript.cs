@@ -12,6 +12,7 @@ public class SelectionScript : MonoBehaviour {
     public GameObject knight;
     public GameObject archer;
     public GameObject mage;
+
     public GameObject baseKnight;
     public GameObject baseRanger;
     public GameObject baseMage;
@@ -25,6 +26,7 @@ public class SelectionScript : MonoBehaviour {
     public bool flag;
     public bool flag2;
     public Vector2 kPosition;
+    public int count;
 
     void Start()
     {
@@ -34,9 +36,13 @@ public class SelectionScript : MonoBehaviour {
         flag2 = false;
         baseMage.SetActive(false);
         baseRanger.SetActive(false);
+        heart1.SetActive(false);
+        heart2.SetActive(false);
+        heart3.SetActive(false);
+        heart4.SetActive(false);
         //DoubleCheck.SetActive(false);
         //DoubleCheckObj.SetActive(false);
-
+        count = 0;
     }
     void Update()
     {
@@ -49,6 +55,7 @@ public class SelectionScript : MonoBehaviour {
 
         if (this.gameObject.tag == "Knight" && selected)
         {
+
             mageCard.GetComponent<SpriteRenderer>().enabled = false;
             knightCard.GetComponent<SpriteRenderer>().enabled = true;
             rangerCard.GetComponent<SpriteRenderer>().enabled = false;
@@ -56,6 +63,7 @@ public class SelectionScript : MonoBehaviour {
             baseKnight.SetActive(true);
             baseMage.SetActive(false);
             baseRanger.SetActive(false);
+
 
             if (Horizontal > 0 && !flag&& !flag2)
             {
@@ -69,13 +77,30 @@ public class SelectionScript : MonoBehaviour {
             {
                 if (camera.GetComponent<startScreenCamera>().isAtScreen)
                 {
+
                     SceneManager.LoadScene("KnightTest");
+
                 }
+
+                count = 1;
             }
+            else if(Input.GetButtonDown("Cancel"))
+            {
+                DoubleCheck.enabled = false;
+                buttonA.enabled = false;
+                buttonB.enabled = false;
+                HeroText.enabled = true;
+                basicText.enabled = true;
+                Stats.enabled = true;
+                flag2 = false;
+                count = 0;
+            }
+
         }
 
         else if (this.gameObject.tag == "Mage" && selected)
         {
+
             mageCard.GetComponent<SpriteRenderer>().enabled = true;
             knightCard.GetComponent<SpriteRenderer>().enabled = false;
             rangerCard.GetComponent<SpriteRenderer>().enabled = false;
@@ -110,10 +135,12 @@ public class SelectionScript : MonoBehaviour {
                     SceneManager.LoadScene("MageTest");
                 }
 
+
             }
         }
         else if (this.gameObject.tag == "Ranger" && selected)
         {
+
             mageCard.GetComponent<SpriteRenderer>().enabled = false;
             knightCard.GetComponent<SpriteRenderer>().enabled = false;
             rangerCard.GetComponent<SpriteRenderer>().enabled = true;
@@ -121,6 +148,7 @@ public class SelectionScript : MonoBehaviour {
             baseRanger.SetActive(true);
             baseMage.SetActive(false);
             baseKnight.SetActive(false);
+
 
             if (Horizontal < 0 && !flag&& !flag2)
             {
@@ -136,6 +164,8 @@ public class SelectionScript : MonoBehaviour {
                 {
                     SceneManager.LoadScene("RangerTest");
                 }
+
+
             }
         }
         if (Horizontal == 0)

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Arrow
+
   - 2Damage
   - 1Damage
   - FireWall
@@ -12,7 +13,9 @@ TagManager:
   - Sword
   - 1ArmorDamage
   - Fireball
+
   - Shield
+
   layers:
   - Default
   - TransparentFX
