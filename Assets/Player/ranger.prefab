@@ -100,9 +100,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b289ff11a1e0c9f44b121c88557ab577, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a660a76b3da46ea4e894973b7af33eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charge: {fileID: 8300000, guid: bf3f839fbeee43f4ea29dbc1361ef568, type: 3}
+  charge: {fileID: 8300000, guid: 07224ce25d50be849a49de8389bbf99a, type: 3}
   arrow: {fileID: 1192579908283640, guid: 034f373f556e2394eb55c0afb2ee4149, type: 2}
 --- !u!114 &114861084781713438
 MonoBehaviour:
@@ -221,6 +221,10 @@ MonoBehaviour:
   MaxHealthPoints: 2
   CurrentHealthPoints: 2
   CurrentArmorPoints: 2
+  dieObject: {fileID: 1654031385134356, guid: 9e9c70701ff538441a6064d16f8080b9, type: 2}
+  gameOver: {fileID: 1064686970592992, guid: a7352e9aaaa8cff4a923d09d2b5410e0, type: 2}
+  dead: 0
+  score: 0
   hit: {fileID: 8300000, guid: 210535ed19b1af84e831a2842c525aa9, type: 3}
 --- !u!212 &212702399756704336
 SpriteRenderer:

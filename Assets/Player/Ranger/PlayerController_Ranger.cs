@@ -43,18 +43,18 @@ public class PlayerController_Ranger : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Dev"))
+        if (Input.GetButtonDown("Exit"))
         {
-            SceneManager.LoadScene("MageTest", LoadSceneMode.Single);
+            Application.Quit();
         }
         UpdateAnimator();
-        if (Input.GetButtonDown("Attack") && !charging)
+        if (Input.GetButtonDown("Attack") && !charging && !pcBase.dead)
         {
             charging = true;
             pcBase.setCanMove(false);
         }
 
-        if (Input.GetButtonDown("Special") && specialtimer > specialtimerGoal && !charging)
+        if (Input.GetButtonDown("Special") && specialtimer > specialtimerGoal && !charging && !pcBase.dead)
         {
             pcBase.setSpeed(6);
             specialtimer = 0;
@@ -77,7 +77,7 @@ public class PlayerController_Ranger : MonoBehaviour {
 
         if (chargetimer >= chargetimerGoal && !charged)
         {
-            source.PlayOneShot(charge, 0.2f);
+            source.PlayOneShot(charge, 0.5f);
             charged = true;
         }
 

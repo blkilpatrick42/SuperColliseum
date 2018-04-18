@@ -16,6 +16,14 @@ public class PlayerController_Base : MonoBehaviour {
     public int CurrentHealthPoints;
     public int CurrentArmorPoints;
 
+    public GameObject dieObject;
+    public GameObject gameOver;
+    float dieTimer;
+    float dieTimerGoal;
+    public bool dead;
+
+    public int score;
+
     public AudioClip hit;
     private AudioSource source;
 
@@ -25,6 +33,7 @@ public class PlayerController_Base : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        score = 0;
         source = this.GetComponent<AudioSource>();
         //assosciate the animator and body wth this object's animation controller and rigidbody
         animator = this.GetComponent<Animator>();
@@ -34,6 +43,7 @@ public class PlayerController_Base : MonoBehaviour {
         canBeHit = true;
         speed = baseSpeed;
         flashingTimerGoal = 1.0f;
+        dieTimerGoal = 3;
     }
 	
 	// Update is called once per frame
@@ -43,13 +53,23 @@ public class PlayerController_Base : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (dead)
+        {
+            dieTimer += Time.deltaTime;
+        }
+        if(dieTimer > dieTimerGoal)
+        {
+            Vector3 pos = this.transform.position;
+            pos.z -= 0.5f;
+            Instantiate(gameOver, pos, new Quaternion());
+        }
         flashingTimer += Time.deltaTime;
-        if(flashingTimer >= flashingTimerGoal && !canBeHit)
+        if(flashingTimer >= flashingTimerGoal && !canBeHit && !dead)
         {
             canBeHit = true;
             myRenderer.enabled = true;
         }
-        else if(!canBeHit)
+        else if(!canBeHit && !dead)
         {
             if (myRenderer.enabled == true)
             {
@@ -68,7 +88,7 @@ public class PlayerController_Base : MonoBehaviour {
     //ensures direction and still are set to the correct values
     void UpdateMovement()
     {
-        if (canMove)
+        if (canMove && !dead)
         {
             float movementSpeed = speed;
 
@@ -135,13 +155,16 @@ public class PlayerController_Base : MonoBehaviour {
     public void setCanMove(bool setValue)
     {
         canMove = setValue;
-        if (!setValue)
+        if (!dead)
         {
-            body.constraints = RigidbodyConstraints2D.FreezeAll;
-        }
-        else
-        {
-            body.constraints = RigidbodyConstraints2D.FreezeRotation;
+            if (!setValue)
+            {
+                body.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+            else
+            {
+                body.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
         }
     }
 
@@ -159,6 +182,10 @@ public class PlayerController_Base : MonoBehaviour {
                 CurrentHealthPoints += CurrentArmorPoints;
             }
             CurrentArmorPoints = 0;
+        }
+        if(CurrentHealthPoints <= 0)
+        {
+            die();
         }
     }
 
@@ -219,5 +246,14 @@ public class PlayerController_Base : MonoBehaviour {
     public void setSpeed(float newSpeed)
     {
         speed = newSpeed;
+    }
+
+    void die()
+    {
+        myRenderer.enabled = false;
+        Instantiate(dieObject, body.position, new Quaternion());
+        canMove = false;
+        dead = true;
+        this.GetComponent<Collider2D>().enabled = false;
     }
 }

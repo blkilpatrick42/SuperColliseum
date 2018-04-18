@@ -8,25 +8,20 @@ public class SelectionScript : MonoBehaviour {
 
 
     private Animator animator;
-    public Text HeroText;
-    public Text basicText;
-    public Text Stats;
-    public Text DoubleCheck;
-    public Text buttonA;
-    public Text buttonB;
     private Rigidbody2D rb2;
     public GameObject knight;
     public GameObject archer;
     public GameObject mage;
-    public GameObject textbox;
-    //public GameObject DoubleCheckObj;
+
     public GameObject baseKnight;
     public GameObject baseRanger;
     public GameObject baseMage;
-    public GameObject heart1;
-    public GameObject heart2;
-    public GameObject heart3;
-    public GameObject heart4;
+
+    public GameObject knightCard;
+    public GameObject mageCard;
+    public GameObject rangerCard;
+    public GameObject camera;
+
     public bool selected;
     public bool flag;
     public bool flag2;
@@ -35,13 +30,8 @@ public class SelectionScript : MonoBehaviour {
 
     void Start()
     {
+        camera = GameObject.FindGameObjectWithTag("MainCamera");
         animator = this.GetComponent<Animator>();
-        HeroText.text = "";
-        basicText.text = "";
-        Stats.text = "";
-        DoubleCheck.text = "";
-        buttonA.text = "";
-        buttonB.text = "";
         flag = false;
         flag2 = false;
         baseMage.SetActive(false);
@@ -56,28 +46,25 @@ public class SelectionScript : MonoBehaviour {
     }
     void Update()
     {
+        if (Input.GetButtonDown("Exit"))
+        {
+            Application.Quit();
+        }
         animator.SetBool("moving", selected);
         var Horizontal = Input.GetAxis("Horizontal");
 
         if (this.gameObject.tag == "Knight" && selected)
         {
-            
-            //HeroText.enabled = true;
-            textbox.SetActive(true);
+
+            mageCard.GetComponent<SpriteRenderer>().enabled = false;
+            knightCard.GetComponent<SpriteRenderer>().enabled = true;
+            rangerCard.GetComponent<SpriteRenderer>().enabled = false;
+
             baseKnight.SetActive(true);
             baseMage.SetActive(false);
             baseRanger.SetActive(false);
-            if (count == 0)
-            {
-                heart1.SetActive(true);
-                heart2.SetActive(true);
-                heart3.SetActive(true);
-                heart4.SetActive(true);
-            }
-            HeroText.text = "Knight: ";
-            basicText.text = "Health: ";
-            Stats.text = "Close Range\n Basic Attack: Sweeping Attack\n Charged Attack: Mid Range Wide Attack\n Special: Blocks and Reflects enemies attacks,\n" +
-                "    " + " But does not reflect boss attacks";
+
+
             if (Horizontal > 0 && !flag&& !flag2)
             {
                 archer.GetComponent<SelectionScript>().flag = true;
@@ -88,32 +75,11 @@ public class SelectionScript : MonoBehaviour {
             }
             if (Input.GetButtonDown("Attack"))
             {
-                if (flag2)
+                if (camera.GetComponent<startScreenCamera>().isAtScreen)
                 {
+
                     SceneManager.LoadScene("KnightTest");
-                }
-                else
-                {
-                    //DoubleCheckObj.SetActive(true);
-                    /*DoubleCheck.enabled = true;
-                    buttonA.enabled = true;
-                    buttonB.enabled = true;
-                    */
-                    DoubleCheck.enabled = true;
-                    buttonA.enabled = true;
-                    buttonB.enabled = true;
-                    DoubleCheck.text = "Are you sure you want to play as the Knight?";
-                    buttonA.text = "Press A to continue.";
-                    buttonB.text = "Press B to go back to Hero Select.";
-                    textbox.SetActive(false);
-                    HeroText.enabled = false;
-                    basicText.enabled = false;
-                    Stats.enabled = false;
-                    heart1.SetActive(false);
-                    heart2.SetActive(false);
-                    heart3.SetActive(false);
-                    heart4.SetActive(false);
-                    flag2 = true;
+
                 }
 
                 count = 1;
@@ -134,22 +100,16 @@ public class SelectionScript : MonoBehaviour {
 
         else if (this.gameObject.tag == "Mage" && selected)
         {
-            //HeroText.enabled = true;
-            textbox.SetActive(true);
+
+            mageCard.GetComponent<SpriteRenderer>().enabled = true;
+            knightCard.GetComponent<SpriteRenderer>().enabled = false;
+            rangerCard.GetComponent<SpriteRenderer>().enabled = false;
+
+
             baseMage.SetActive(true);
             baseKnight.SetActive(false);
             baseRanger.SetActive(false);
-            if (count == 0)
-            {
-                heart1.SetActive(true);
-                heart2.SetActive(true);
-                heart3.SetActive(true);
-                heart4.SetActive(false);
-            }
-            HeroText.text = "Mage: ";
-            basicText.text = "Health: ";
-            Stats.text = "Mid Range\n Basic Attack: Fireball Shot\n Charged Attack: Fireball Shot that explodes \n" +
-                "    " + "sending fireballs in all directions\n Special: Leaves a trail of Fire for a few seconds\n";
+
             
             if (Horizontal > 0 && !flag&& !flag2)
             {
@@ -170,61 +130,26 @@ public class SelectionScript : MonoBehaviour {
             }
             if (Input.GetButtonDown("Attack"))
             {
-                if (flag2)
+                if (camera.GetComponent<startScreenCamera>().isAtScreen)
                 {
                     SceneManager.LoadScene("MageTest");
                 }
-                else
-                {
-                    DoubleCheck.enabled = true;
-                    buttonA.enabled = true;
-                    buttonB.enabled = true;
-                    //DoubleCheckObj.SetActive(true);
-                    DoubleCheck.text = "Are you sure you want to play as the Mage?";
-                    buttonA.text = "Press A to continue.";
-                    buttonB.text = "Press B to go back to Hero Select.";
-                    textbox.SetActive(false);
-                    HeroText.enabled = false;
-                    basicText.enabled = false;
-                    Stats.enabled = false;
-                    heart1.SetActive(false);
-                    heart2.SetActive(false);
-                    heart3.SetActive(false);
-                    heart4.SetActive(false);
-                    flag2 = true;
-                }
-                count = 1;
-            }
-            else if (Input.GetButtonDown("Cancel"))
-            {
-                DoubleCheck.enabled = false;
-                buttonA.enabled = false;
-                buttonB.enabled = false;
-                HeroText.enabled = true;
-                basicText.enabled = true;
-                Stats.enabled = true;
-                flag2 = false;
-                count = 0;
+
+
             }
         }
         else if (this.gameObject.tag == "Ranger" && selected)
         {
-            //HeroText.enabled = true;
-            textbox.SetActive(true);
+
+            mageCard.GetComponent<SpriteRenderer>().enabled = false;
+            knightCard.GetComponent<SpriteRenderer>().enabled = false;
+            rangerCard.GetComponent<SpriteRenderer>().enabled = true;
+
             baseRanger.SetActive(true);
             baseMage.SetActive(false);
             baseKnight.SetActive(false);
-            if (count == 0)
-            {
-                heart1.SetActive(true);
-                heart2.SetActive(true);
-                heart3.SetActive(false);
-                heart4.SetActive(false);
-            }
-            HeroText.text = "Archer: ";
-            basicText.text = "Health: ";
-            Stats.text = "Long Range\n Basic Attack: Arrow Shot (arrow will go until\n" +
-                "    " + " it hits a wall or hits 3 enemies)\n Charged Attack: Three Arrow Spread\n Special: Movement Increased by a factor of 2";
+
+
             if (Horizontal < 0 && !flag&& !flag2)
             {
                 archer.GetComponent<SelectionScript>().flag = true;
@@ -235,41 +160,12 @@ public class SelectionScript : MonoBehaviour {
             }
             if (Input.GetButtonDown("Attack"))
             {
-                if (flag2)
+                if (camera.GetComponent<startScreenCamera>().isAtScreen)
                 {
                     SceneManager.LoadScene("RangerTest");
                 }
-                else
-                {
-                    DoubleCheck.enabled = true;
-                    buttonA.enabled = true;
-                    buttonB.enabled = true;
-                    //DoubleCheckObj.SetActive(true);
-                    DoubleCheck.text = "Are you sure you want to play as the Ranger?";
-                    buttonA.text = "Press A to continue.";
-                    buttonB.text = "Press B to go back to Hero Select.";
-                    textbox.SetActive(false);
-                    HeroText.enabled = false;
-                    basicText.enabled = false;
-                    Stats.enabled = false;
-                    heart1.SetActive(false);
-                    heart2.SetActive(false);
-                    heart3.SetActive(false);
-                    heart4.SetActive(false);
-                    flag2 = true;
-                }
-                count = 1;
-            }
-            else if (Input.GetButtonDown("Cancel"))
-            {
-                DoubleCheck.enabled = false;
-                buttonA.enabled = false;
-                buttonB.enabled = false;
-                HeroText.enabled = true;
-                basicText.enabled = true;
-                Stats.enabled = true;
-                flag2 = false;
-                count = 0;
+
+
             }
         }
         if (Horizontal == 0)

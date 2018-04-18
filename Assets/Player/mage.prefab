@@ -224,6 +224,8 @@ MonoBehaviour:
   MaxHealthPoints: 3
   CurrentHealthPoints: 3
   CurrentArmorPoints: 3
+  dieObject: {fileID: 1654031385134356, guid: 9e9c70701ff538441a6064d16f8080b9, type: 2}
+  gameOver: {fileID: 1064686970592992, guid: a7352e9aaaa8cff4a923d09d2b5410e0, type: 2}
   hit: {fileID: 8300000, guid: 210535ed19b1af84e831a2842c525aa9, type: 3}
 --- !u!212 &212842421933357816
 SpriteRenderer:

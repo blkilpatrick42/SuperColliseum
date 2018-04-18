@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour {
     public float timeBetweenSpawns;
+    float turnoffDistance;
     public int maxSpawns;
     private float timer;
 
     public List<GameObject> spawnBoys;
+    GameObject player;
 
     public GameObject spawnObject;
 	// Use this for initialization
 	void Start () {
         spawnBoys.Add(Instantiate(spawnObject, transform.position, new Quaternion()));
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        player = GameObject.FindGameObjectWithTag("P");
         timer = 0;
+        turnoffDistance = 5;
 	}
 	
 	// Update is called once per frame
@@ -30,7 +34,8 @@ public class spawner : MonoBehaviour {
             }
         }
         timer += Time.deltaTime;
-        if(timer > timeBetweenSpawns)
+        Vector2 toPlayer = (Vector2)player.transform.position - (Vector2)this.transform.position;
+        if(timer > timeBetweenSpawns && toPlayer.magnitude > turnoffDistance)
         {
             if (spawnBoys.Count < maxSpawns)
             {

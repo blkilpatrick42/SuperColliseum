@@ -126,7 +126,7 @@ MonoBehaviour:
   healthPoints: 1
   explosion: {fileID: 1824958296786378, guid: 92c776e2efb81eb4c84c2f58a8f6ac73, type: 2}
   player: {fileID: 0}
-  damageTimer: 0
+  damageTimerGoal: 0.5
   wanderTimer: 0
   wandertimerGoal: 5
   drop: {fileID: 1375334385332000, guid: f90ce3c80f817524b9b7545d679076c3, type: 2}
@@ -145,7 +145,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8095ca61b7427f947a4b88442c1a972a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

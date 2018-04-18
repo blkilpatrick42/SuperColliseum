@@ -43,13 +43,17 @@ public class PlayerController_Mage : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Exit"))
+        {
+            Application.Quit();
+        }
         UpdateAnimator();
-        if (Input.GetButtonDown("Attack") && !attacking && !usingSpecial)
+        if (Input.GetButtonDown("Attack") && !attacking && !usingSpecial && !pcBase.dead)
         {
             attack();
         }
 
-        if (Input.GetButton("Special") && !attacking && specialtimer > 0.2 && numOfFirewalls > 0)
+        if (Input.GetButton("Special") && !attacking && specialtimer > 0.2 && numOfFirewalls > 0 && !pcBase.dead)
         {
             specialtimer = 0;
             numOfFirewalls = numOfFirewalls - 1;
@@ -80,7 +84,7 @@ public class PlayerController_Mage : MonoBehaviour {
 
         if (chargetimer >= chargetimerGoal && !charged)
         {
-            source.PlayOneShot(charge, 0.2f);
+            source.PlayOneShot(charge, 0.5f);
             charged = true;
         }
 
